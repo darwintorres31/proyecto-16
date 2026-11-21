@@ -1,0 +1,124 @@
+
+/* ===== Nuevo diseño para menú desplegable ===== */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f0fdf4;
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.desplegable {
+    position: relative;
+    width: 320px;
+    max-width: 90vw;
+}
+
+/* Botón principal */
+.boton {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    font-size: 18px;
+    background: #ffffff;
+    color: #166534;
+    border: 2px solid #86b98d;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(22, 101, 52, 0.10);
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: #dcfce7;
+}
+
+/* Flecha desplegable */
+.flecha {
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #15803d;
+    border-bottom: 2px solid #15803d;
+    transform: rotate(45deg);
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Flecha cuando está abierto */
+.desplegable.abierto .flecha {
+    transform: rotate(-135deg);
+    margin-bottom: -5px;
+}
+
+/* Lista de opciones */
+.lista {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #ffffff;
+    border: 2px solid #86b98d;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(22, 101, 52, 0.15);
+    z-index: 10;
+}
+
+/* Mostrar lista */
+.desplegable.abierto .lista {
+    display: block;
+}
+
+/* Opciones */
+.lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    font-size: 17px;
+    color: #374151;
+    border-top: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lista li:first-child {
+    border-top: none;
+}
+
+/* Efecto al pasar el mouse */
+.lista li:hover {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* Opción seleccionada */
+.lista li.seleccionado {
+    background: #bbf7d0;
+    color: #14532d;
+    font-weight: bold;
+}
+
+/* Círculo con check */
+.lista li.seleccionado::after {
+    content: "✓";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background: #15803d;
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+}
